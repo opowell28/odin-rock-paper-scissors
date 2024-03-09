@@ -13,4 +13,7 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
+// ask for user input
+function getPlayerChoice() {
+    let playerChoice = prompt("Enter 'rock,' 'paper,' or 'scissors.'");
+}
