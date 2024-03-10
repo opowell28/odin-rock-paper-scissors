@@ -20,49 +20,61 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
-// play a single round
+// play a single round and return the winner
 function playOneRound(playerChoice, computerChoice) {
     switch(playerChoice) {
         case "rock":
             if(computerChoice === "rock") {
                 alert("Both chose rock, it's a tie.");
+                return "tie";
             }
             else if(computerChoice === "paper") {
                 alert("You lose, paper beats rock.");
+                return "computer";
             }
             else if(computerChoice === "scissors") {
                 alert("You win, rock beats scissors.");
+                return "player";
             }
             else {
                 alert("ERROR");
+                return "error";
             }
             break;
         case "paper":
             if(computerChoice === "rock") {
                 alert("You win, paper beats rock.");
+                return "player";
             }
             else if(computerChoice === "paper") {
                 alert("Both chose paper, it's a tie.");
+                return "tie";
             }
             else if(computerChoice === "scissors") {
                 alert("You lose, scissors beats paper.");
+                return "computer";
             }
             else {
                 alert("ERROR");
+                return "error";
             }
             break;
         case "scissors":
             if(computerChoice === "rock") {
                 alert("You lose, rock beats scissors.");
+                return "computer";
             }
             else if(computerChoice === "paper") {
                 alert("You win, scissors beats paper.");
+                return "player";
             }
             else if(computerChoice === "scissors") {
                 alert("It's a tie, both chose scissors.");
+                return "tie";
             }
             else {
                 alert("ERROR");
+                return "error";
             }
             break;
     }
