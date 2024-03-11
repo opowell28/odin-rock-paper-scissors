@@ -15,8 +15,8 @@ function getComputerChoice() {
 
 // ask for user input
 function getPlayerChoice() {
-    let playerChoice = prompt("Enter 'rock,' 'paper,' or 'scissors.'");
-    playerChoice = playerChoice.toLowerCase();
+    let playerChoice = prompt("Enter 'rock,' 'paper,' or 'scissors.'").toString().toLowerCase();
+    console.log(playerChoice);
     return playerChoice;
 }
 
@@ -86,17 +86,23 @@ function playGame() {
     let computerWins = 0;
     let ties = 0;
 
-    let roundsToPlay = 5;
+    let roundsPlayed = 0;
 
-    for(let i = 0; i < roundsToPlay; i++) {
+    while(roundsPlayed < 5) {
         if(playOneRound(getPlayerChoice(), getComputerChoice()) === "player") {
             playerWins++;
+            roundsPlayed++;
         }
         else if(playOneRound(getPlayerChoice(), getComputerChoice()) === "computer") {
             computerWins++;
+            roundsPlayed++;
         }
         else if(playOneRound(getPlayerChoice(), getComputerChoice()) === "tie") {
             ties++;
+            roundsPlayed++;
+        }
+        else {
+            roundsPlayed++;
         }
     }
 
@@ -108,4 +114,4 @@ function playGame() {
     }
 }
 
-// playGame();
+playGame();
