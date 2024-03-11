@@ -80,6 +80,32 @@ function playOneRound(playerChoice, computerChoice) {
     }
 }
 
-let computerChoice = getComputerChoice();
-let playerChoice = getPlayerChoice();
-playOneRound(playerChoice, computerChoice);
+// play a game consisting of a specified number of rounds
+function playGame() {
+    let playerWins = 0;
+    let computerWins = 0;
+    let ties = 0;
+
+    let roundsToPlay = 5;
+
+    for(let i = 0; i < roundsToPlay; i++) {
+        if(playOneRound(getPlayerChoice(), getComputerChoice()) === "player") {
+            playerWins++;
+        }
+        else if(playOneRound(getPlayerChoice(), getComputerChoice()) === "computer") {
+            computerWins++;
+        }
+        else if(playOneRound(getPlayerChoice(), getComputerChoice()) === "tie") {
+            ties++;
+        }
+    }
+
+    if(playerWins > computerWins) {
+        alert(`Game over, you win ${playerWins} to ${computerWins}`);
+    }
+    else if(computerWins > playerWins) {
+        alert(`Game over, you lose ${playerWins} to ${computerWins}`);
+    }
+}
+
+// playGame();
